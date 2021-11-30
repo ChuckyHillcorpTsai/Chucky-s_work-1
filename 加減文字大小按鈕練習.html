@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    #bt1,
+    #bt2 {
+        font-size: 30px;
+        width: 30px;
+        height: 30px;
+
+    }
+</style>
+
+<div id="bt1">+</div>
+<div id="bt2">-</div>
+
+<body>
+    <p id="content">
+        你可以不聰明 但是你不可以不努力
+    </p>
+
+    <script>
+        // 獲取元素
+        var oText = document.getElementById("content");
+        var oBt1 = document.getElementById("bt1")
+        var oBt2 = document.getElementById("bt2")
+
+        var size = 16; //初始先假使為16
+
+
+        // 加 操作
+        oBt1.onclick = function () {
+            size = size + 1;
+            // Tip1 js不能有'-'
+            // Tip2 是否有數量的單位
+            // Tip3 font-size原本為30px
+            oText.style.fontSize =size +'px';  //font-size變為fontSize 因為不能有-
+        }
+
+        // 減 操作
+        oBt2.onclick = function () {
+            size = size - 1;
+            oText.style.fontSize =size +'px';
+        }
+    </script>
+</body>
+
+</html>

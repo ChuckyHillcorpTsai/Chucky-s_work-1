@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    #box {
+        width: 250px;
+        border: 1px solid black;
+        margin: 20px;
+    }
+
+    #box h3 {
+        cursor: pointer;
+        border: 1px solid black;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 20px;
+        background-color: deepskyblue;
+    }
+
+    .section ul {
+        display: none;
+    }
+
+    #box ul li {
+        padding-left: 30px;
+        line-height: 30px;
+        border: 1px solid black;
+    }
+
+    #box ul .active {
+        background: rgb(142, 157, 240);
+        color: rgb(243, 242, 242);
+    }
+</style>
+
+<body>
+    <div id="box">
+        <!-- 分組 -->
+        <div class="section">
+            <h3>我的好友<span>(3/7)</span></h3>
+            <ul>
+                <li>我的好友1</li>
+                <li>我的好友2</li>
+                <li>我的好友3</li>
+                <li>我的好友4</li>
+                <li>我的好友5</li>
+                <li>我的好友6</li>
+                <li>我的好友7</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>同學<span>(5/7)</span></h3>
+            <ul>
+                <li>我的好友1</li>
+                <li>我的好友2</li>
+                <li>我的好友3</li>
+                <li>我的好友4</li>
+                <li>我的好友5</li>
+                <li>我的好友6</li>
+                <li>我的好友7</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h3>同事<span>(3/7)</span></h3>
+            <ul>
+                <li>我的好友1</li>
+                <li>我的好友2</li>
+                <li>我的好友3</li>
+                <li>我的好友4</li>
+                <li>我的好友5</li>
+                <li>我的好友6</li>
+                <li>我的好友7</li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="test.js"></script>
+</html>

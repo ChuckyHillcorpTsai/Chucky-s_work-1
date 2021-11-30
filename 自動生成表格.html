@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        border: double 1px black;
+        width: 30px;
+    }
+</style>
+
+<body>
+
+
+
+    <input id='line' type="text" placeholder="行的數量">
+    <input id='row' type="text" placeholder="列的數量">
+    <button id="creatTable">生出表格</button>
+
+
+    <script type="text/javascript">
+        var line = document.getElementById("line"); //獲取行的數量
+        var row = document.getElementById("row"); //獲取列的數量
+        var table; //全域變數
+
+        document.getElementById("creatTable").onclick = function() {
+            line = parseInt(line.value); //取得行的"值"
+            row = parseInt(row.value); //取得列的"值"
+
+            //判斷是否有表格  有就會先刪除
+            if (typeof table == 'object') {
+                document.body.removeChild(table);
+            }
+
+            //輸出行與列(行數量,列數量)
+            lineRow(line, row)
+        };
+
+        function lineRow(lineV, rowV) {
+            //先創造表格
+            table = document.createElement("table");
+            //將tr做for迴圈
+            for (var x = 0; x < line; x++) {
+                //創造出tr
+                var tr = table.insertRow();
+
+                //將td做for迴圈
+                for (var y = 0; y < row; y++) {
+                    //創造出td
+                    tr.insertCell().innerHTML = '';
+                }
+            }
+            //動態掛載到web
+            document.body.appendChild(table);
+        }
+    </script>
+
+</body>
+
+</html>

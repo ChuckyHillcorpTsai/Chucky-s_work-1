@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <script async custom-element="amp-date-picker" src="https://cdn.ampproject.org/v0/amp-date-picker-0.1.js"></script>
+</head>
+<body>
+ 
+    <amp-date-picker layout="fixed-height" height="360"> </amp-date-picker>
+ 
+    <form method="post" action-xhr="/form-post" target="_blank">
+        <fieldset>
+          <label>
+            <span>Your name</span>
+            <input type="text" name="name" id="name" required />
+          </label>
+          <label for="date">Your date</label>
+          <amp-date-picker
+            type="range"
+            mode="static"
+            id="date"
+            layout="fixed-height"
+            height="360"
+          >
+            <!-- automatically generates hidden input fields:
+          <input type="hidden" name="start-date">
+          <input type="hidden" name="end-date"> -->
+          </amp-date-picker>
+          <input type="submit" value="Subscribe" />
+        </fieldset>
+        <div submit-success>
+          <template type="amp-mustache">
+            Success! Thanks {{name}} for choosing {{start-date}} and {{end-date}}.
+          </template>
+        </div>
+      </form>
+
+
+</body>
+</html>

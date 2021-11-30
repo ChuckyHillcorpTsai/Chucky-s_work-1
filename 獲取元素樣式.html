@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style type="text/css">
+    #box {
+        width: 300px;
+        height: 300px;
+        background: red;
+    }
+</style>
+
+<script>
+    window.onload = function() {
+        var oBt = document.getElementById('bt');
+        var oBox = document.getElementById('box');
+        oBt.onclick = function() {
+            // alert(oBox.style.width); //只能為內聯格式
+
+            // 非IE瀏覽器
+            // var style = getComputedStyle(oBox);
+            // alert(style.background) //background可以改別的
+
+            // IE瀏覽器
+            // alert(oBox.currenStyle.background)
+
+            //兼容性寫法
+            var style = getComputedStyle(oBox);
+            var width = ''; //獲取寬度
+            if (window.getComputedStyle) {
+                width = style.width;
+            } else {
+                width = oBox.currenStyle.width;
+            }
+            // alert(width)
+
+            //進行函數封裝
+            var width = getStyle(oBox, 'width');
+        }
+
+        // 獲取元素樣式
+        // object 元素對象
+        // att 需要獲取的屬性
+        function getStyle(object, att) {
+            if (window.getComputedStyle) { //非IE
+                return getComputedStyle(object)[att];
+            } else { //IE
+                return object.currenStyle[att];
+            }
+        }
+    }
+</script>
+
+<body>
+    <input type="button" value="按鈕" id="bt">
+    <div id="box"></div>
+</body>
+
+</html>

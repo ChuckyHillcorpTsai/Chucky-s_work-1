@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    ul {
+        list-style: none;
+    }
+
+    .imgs {
+        width: 500px;
+        height: 280px;
+        overflow: hidden;
+    }
+
+    .dots {
+        position: absolute;
+        left: 250px;
+        top: 450px;
+        z-index: 999;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        border-radius: 10px;
+        background-color: rgb(230, 217, 217);
+    }
+</style>
+
+<body>
+
+    <div class="ad">
+        <ul id="imgs" class="imgs">
+            <li data='0' class="img_li"><img
+                    src="https://www.travel.taipei//d_upload_ttn//sceneadmin//pic//11000848.jpg" alt=""></li>
+            <li data='1' class="img_li"><img
+                    src="https://www.travel.taipei//d_upload_ttn//sceneadmin//pic//11002891.jpg" alt=""></li>
+            <li data='2' class="img_li"><img
+                    src="https://www.travel.taipei//d_upload_ttn//sceneadmin//image//A0//B0//C0//D315//E70//F65//1e0951fb-069f-4b13-b5ca-2d09df1d3d90.JPG"
+                    alt=""></li>
+            <li data='3' class="img_li"><img
+                    src="https://www.travel.taipei//d_upload_ttn//sceneadmin//image//A0//B0//C0//D260//E538//F274//e7d482ba-e3c0-40c3-87ef-3f2a1c93edfa.JPG"
+                    alt=""></li>
+            <li data='4' class="img_li"><img
+                    src="http:\/\/www.travel.taipei\/d_upload_ttn\/sceneadmin\/image\/A0\/B0\/C0\/D919\/E767\/F581\/9ddde70e-55c2-4cf0-bd3d-7a8450582e55.jpg">
+                alt="">
+            <li data='5' class="img_li"><img
+                    src="http:\/\/www.travel.taipei\/d_upload_ttn\/sceneadmin\/image\/A0\/B0\/C1\/D28\/E891\/F188\/77a58890-7711-4ca2-aebe-4aa379726575.JPG"
+                    alt=""></li>
+        </ul>
+        <ul class="dots">
+            <li data='0' class="dot" style="background-color: rgb(196, 60, 60);"></li>
+            <li data='1' class="dot"></li>
+            <li data='2' class="dot"></li>
+            <li data='3' class="dot"></li>
+            <li data='4' class="dot"></li>
+            <li data='5' class="dot"></li>
+        </ul>
+    </div>
+
+    <script type="text/javascript">
+        // ========簡單輪播圖 圖片自動切換========
+        // setInterval(function() {
+        //     var li = document.querySelector('.img_li');
+        //     var ul = document.getElementById('imgs');
+
+        //     ul.appendChild(li); //向父元素添加最後一個子元素
+        // }, 3000)
+
+
+        // ========簡單輪播圖 鼠標懸浮切換圖片(CSS控制顯示以及隱藏)======== 
+        
+        var dot_lis = document.querySelectorAll('.dot');
+        // 指定所有鼠標漂浮事件
+        for (var i = 0; i < dot_lis.length; i++) {
+            // 各個事件
+            dot_lis[i].onmouseover = function () {
+                // 先隱藏所有圖片 & dot
+                var img_lis = document.querySelectorAll('.img_li');
+                for (var j = 0; j < img_lis.length; j++) {
+                    img_lis[j].style.display = 'none'; //隱藏所有圖片
+                    dot_lis[j].style.backgroundColor = '' //隱藏所有dot
+
+                }
+                // 再讓選取的dot增加背景色
+                this.style.backgroundColor = "red"
+                // 顯示對應的圖片
+                // console.log(this);
+                // console.log(this.getAttribute('data'));
+                var index = this.getAttribute('data');
+                img_lis[index].style.display = 'block';
+            }
+        }
+
+        // 綁定鼠標事件
+    </script>
+</body>
+
+</html>

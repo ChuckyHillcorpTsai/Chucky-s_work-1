@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./封裝操作.js"></script>
+</head>
+
+<script>
+    $(function() {
+        var timer = null;
+        var index = 0;
+
+        $('start').onclick = function() {
+            // setInterval(函數,間隔時間) 定時器 重複操作
+            // 函數: 事件處理
+            // 間隔: 間隔時間(毫秒)
+            // 返回值: 時間的對象
+            if (timer == null) {
+                timer = setInterval(speak, 1000);
+            }
+        }
+
+        function speak() {
+            index++;
+            console.log(index);
+        }
+
+        $('stop').onclick = function() {
+            clearInterval(timer);
+            timer = null;
+        }
+    })
+</script>
+
+<body>
+    <button id="start">開始</button>
+    <button id="stop">停止</button>
+</body>
+
+</html>

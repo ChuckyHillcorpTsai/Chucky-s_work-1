@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 輸入成績
+    90-100 A 優秀
+    80-89 B 良好
+    70-79 c 中上
+    60-69 D 中下
+    60以下 F 不及格
+    -->
+
+    <input type="text" id="text" placeholder="輸入成績">
+    <input type="button" value="等級" id="bt">
+
+    <script>
+
+        // 獲取元素
+        var oText = document.getElementById("text");
+        var oBt = document.getElementById("bt");
+
+        oBt.onclick = function () {
+            // 條件判斷
+            var num = Number(oText.value); // 獲取到輸入框的內容,並轉為數字類型
+            if (num >100) {
+                alert("超過100分")
+            }
+            else if (num >=90) {
+                alert("A 優秀")
+            }
+            else if (num >= 80) {
+                alert("B 良好")
+            }
+            else if (num >= 70) {
+                alert("C 中上")
+            }
+            else if (num >= 60) {
+                alert("D 中下")
+            }
+            else {
+                alert("F 不及格")
+            }
+            
+
+        }
+    </script>
+</body>
+
+</html>
