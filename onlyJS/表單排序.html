@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <title>Super Link</title>
+    <script laguage="javascript">
+
+        function generateCompare(iCol) {
+            return function compare(tr1, tr2) {
+                var v1 = tr1.cells[iCol].firstChild.nodeValue;
+                var v2 = tr2.cells[iCol].firstChild.nodeValue;
+                console.log(v1,v2)
+                if (iCol == 0) { //序號列，降序
+                    if (parseInt(v1) > parseInt(v2))
+                        return -1;
+                    else if (parseInt(v1) < parseInt(v2))
+                        return 1;
+                    else
+                        return 0;
+                } else {     //姓名列，升序
+                    if (v1 > v2)
+                        return 1;
+                    else if (v1 < v2)
+                        return -1;
+                    else
+                        return 0;
+                }
+            }
+        }
+
+        function sortTable(iCol) {
+            var oTable = document.getElementById("tblSort");
+            var oBody = oTable.tBodies[0];
+            var aRows = oBody.rows;
+            var a = new Array;
+            for (var i = 0; i < aRows.length; i++) {
+                a.push(aRows[i]);
+            }
+            a.sort(generateCompare(iCol));
+            var ofrag = document.createDocumentFragment();
+            for (var i = 0; i < a.length; i++) {
+                ofrag.appendChild(a[i]);
+            }
+            oBody.appendChild(ofrag);
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="button" value="按序號降序排列" onclick="sortTable(0)">
+    <br>
+    <br>
+    <input type="button" value="按姓名升序排列" onclick="sortTable(1)">
+    <br>
+    <br>
+    <table border="1" id="tblSort">
+        <thead>
+            <tr>
+                <th>序號</th>
+                <th>姓名</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>王明</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>超人</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>張三</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>李四</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

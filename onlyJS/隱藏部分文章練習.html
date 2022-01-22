@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    #box {
+        width: 300px;
+        border: 1px solid gray;
+    }
+    
+    #box a {
+        text-decoration: none;
+    }
+</style>
+
+<body>
+
+
+    <div id="box">
+        <p>1.再次修改作業並且交出 2.背英文單字 3.複習JS的字串 4.練習JS 自定義屬性 1.視訊會議 2.持續運動 3.看美劇.看卡通 讓心情舒服點 1.寫不出來東西會心情暴躁 2.需要多參考其他網站的做法
+        </p>
+        <a href="#">收 起</a>
+    </div>
+
+    <script>
+        var oContent = document.getElementsByTagName('p')[0];
+        var oBt = document.getElementsByTagName('a')[0];
+        var str = oContent.innerHTML; //保存
+
+        // 展開(默認)
+        oBt.isShow = true;
+
+        oBt.onclick = function() {
+            this.isShow = !this.isShow;
+
+            if (this.isShow) { //如果展開
+                oContent.innerHTML = str;
+                oBt.innerHTML = '收 起'
+            } else { //隱藏
+                oContent.innerHTML = oContent.innerHTML.substring(0, 20) + '...';
+                oBt.innerHTML = '展 開'
+            }
+        }
+    </script>
+</body>
+
+</html>
