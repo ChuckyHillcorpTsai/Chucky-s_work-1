@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>比大小</title>
+</head>
+
+<body>
+    <h1>猜數字遊戲</h1>
+    <h5>現在猜一個1-100的數字，猜中代表你很聰明</h5>
+    <div id="number" style="width: 30px;height: 30px;"></div>
+    <button id="random">隨機產生數字猜獎</button>
+    <h3 id="gambling"></h3>
+
+
+    <script type="text/javascript">
+        random.onclick = function() {
+            document.getElementById("number").innerHTML = parseInt(Math.random() * 100) + 1;
+
+            var num = Number(number.innerHTML);
+            if (num >= 50) {
+                document.getElementById("gambling").innerHTML = ("過大了")
+            } else if (num == 33) {
+                document.getElementById("gambling").innerHTML = ("好聰明!!")
+            } else {
+                document.getElementById("gambling").innerHTML = ("太小了")
+            }
+        }
+    </script>
+
+</body>
+
+</html>
