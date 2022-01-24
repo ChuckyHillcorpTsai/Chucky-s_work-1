@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>移動方塊</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        /* 建立一個div */
+        var div = document.createElement("div");
+        /* 將div新增到網頁中 */
+        document.body.appendChild(div);
+        /* 設定div的樣式 */
+        div.style.width = "100px";
+        div.style.height = "100px";
+        div.style.backgroundColor = "red";
+        div.style.position = "absolute";
+        div.style.top = "0";
+        div.style.left = "0";
+        /* 鍵盤按下事件 */
+        document.onkeydown = function (e) {
+            /* 方塊移動的速度，即每按一次方塊移動的畫素，值越大移動速度越快 */
+            var speed = 10;
+            switch (e.which) {
+                // 上
+                case 38:
+                    div.style.top = parseInt(div.style.top) - speed + "px";
+                    break;
+                    // 下
+                case 40:
+                    div.style.top = parseInt(div.style.top) + speed + "px";
+                    break;
+                    // 左
+                case 37:
+                    div.style.left = parseInt(div.style.left) - speed + "px";
+                    break;
+                    // 右
+                case 39:
+                    div.style.left = parseInt(div.style.left) + speed + "px";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>
